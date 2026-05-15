@@ -1,17 +1,21 @@
+import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 
 type Props = {
+  slug: string;
   name: string;
   category: string;
   price: string;
 };
 
 export default function ProductCard({
+  slug,
   name,
   category,
   price,
 }: Props) {
   return (
+  <Link href={`/productos/${slug}`}>
     <div className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
       
       {/* Fake image */}
@@ -45,10 +49,11 @@ export default function ProductCard({
 
           <button className="flex items-center gap-2 rounded-xl bg-[#F86E71] px-4 py-3 text-sm font-semibold text-white transition hover:opacity-90">
             <ShoppingCart size={18} />
-            Agregar
+            Ver
           </button>
         </div>
       </div>
     </div>
-  );
+  </Link>
+);
 }

@@ -29,6 +29,7 @@ export default function FeaturedProducts() {
           {products.map((product) => (
             <ProductCard
               key={product.id}
+              slug={product.slug}
               name={product.name}
               category={product.category}
               price={product.price}
