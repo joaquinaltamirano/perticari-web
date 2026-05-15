@@ -1,5 +1,6 @@
 import ProductCard from "../../components/ProductCard";
 import { products } from "../../data/products";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 export default function ProductosPage() {
   return (
@@ -8,7 +9,15 @@ export default function ProductosPage() {
         
         {/* Heading */}
         <div className="mb-16">
-          <span className="text-sm font-semibold uppercase tracking-widest text-[#77D89E]">
+          
+          <Breadcrumbs
+            items={[
+              { label: "Inicio", href: "/" },
+              { label: "Productos" },
+            ]}
+          />
+
+          <span className="mt-6 block text-sm font-semibold uppercase tracking-widest text-[#77D89E]">
             Catálogo
           </span>
 
