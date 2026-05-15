@@ -1,7 +1,11 @@
+import Hero from "@/app/components/Hero";
+import Navbar from "@/app/components/Navbar";
+
 export default function Home() {
   return (
     <main>
-      <h1>Perticari Web</h1>
+      <Navbar />
+      <Hero />
     </main>
   );
 }
