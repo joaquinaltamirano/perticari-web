@@ -25,9 +25,8 @@ export default function Categories() {
         <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {categories.map((category) => (
             <CategoryCard
-              key={category.title}
-              title={category.title}
-              description={category.description}
+              key={category.name}
+              title={category.name}
             />
           ))}
         </div>

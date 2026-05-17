@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { ShoppingCart } from "lucide-react";
 
 type Props = {
   slug: string;
+  categorySlug: string;
   name: string;
   category: string;
   price: string;
@@ -10,50 +10,55 @@ type Props = {
 
 export default function ProductCard({
   slug,
+  categorySlug,
   name,
   category,
   price,
 }: Props) {
   return (
-  <Link href={`/productos/${slug}`}>
-    <div className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
-      
-      {/* Fake image */}
-      <div className="relative h-56 overflow-hidden bg-[#093830]">
-        
-        <div className="absolute inset-0 bg-gradient-to-br from-[#77D89E]/20 to-transparent" />
+    <Link
+      href={`/productos/${categorySlug}/${slug}`}
+      className="group overflow-hidden rounded-[28px] border border-zinc-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-[#77D89E] hover:shadow-xl"
+    >
+      {/* Image Placeholder */}
+      <div className="relative flex h-[240px] items-center justify-center overflow-hidden bg-gradient-to-br from-[#093830] to-[#0f4d42]">
 
-        <div className="flex h-full items-center justify-center">
-          <span className="text-lg font-bold text-white/40">
-            PERTICARI
-          </span>
-        </div>
+        <span className="px-8 text-center text-xl font-black text-white/20 transition group-hover:scale-105">
+          {name}
+        </span>
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(119,216,158,0.25),transparent_45%)]" />
       </div>
 
       {/* Content */}
-      <div className="p-6">
-        
-        <span className="text-sm font-medium text-[#77D89E]">
+      <div className="p-7">
+
+        <span className="inline-flex rounded-full bg-[#77D89E]/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#093830]">
           {category}
         </span>
 
-        <h3 className="mt-3 text-xl font-black leading-tight text-[#093830]">
+        <h3 className="mt-4 line-clamp-2 min-h-[64px] text-2xl font-black leading-tight text-[#093830]">
           {name}
         </h3>
 
-        <div className="mt-6 flex items-center justify-between">
-          
-          <span className="text-2xl font-black text-[#093830]">
-            {price}
+        <div className="mt-8 flex items-end justify-between">
+
+          <div>
+            <span className="text-sm text-zinc-500">
+              Desde
+            </span>
+
+            <p className="text-3xl font-black text-[#093830]">
+              {price}
+            </p>
+          </div>
+
+          <span className="rounded-full bg-[#093830] px-5 py-3 text-sm font-bold text-white transition group-hover:bg-[#77D89E] group-hover:text-[#093830]">
+            Ver
           </span>
 
-          <button className="flex items-center gap-2 rounded-xl bg-[#F86E71] px-4 py-3 text-sm font-semibold text-white transition hover:opacity-90">
-            <ShoppingCart size={18} />
-            Ver
-          </button>
         </div>
       </div>
-    </div>
-  </Link>
-);
+    </Link>
+  );
 }

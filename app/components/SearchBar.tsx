@@ -1,10 +1,10 @@
 "use client";
 
-import { Search } from "lucide-react";
-
 type Props = {
   value: string;
-  onChange: (value: string) => void;
+  onChange: (
+    value: string
+  ) => void;
 };
 
 export default function SearchBar({
@@ -13,18 +13,16 @@ export default function SearchBar({
 }: Props) {
   return (
     <div className="relative">
-      
-      <Search
-        className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-400"
-        size={20}
-      />
-
       <input
         type="text"
-        placeholder="Buscar productos..."
+        placeholder="Buscar caños, chapas, perfiles..."
         value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="h-16 w-full rounded-2xl border border-zinc-200 bg-white pl-14 pr-5 text-sm outline-none transition focus:border-[#77D89E]"
+        onChange={(e) =>
+          onChange(
+            e.target.value
+          )
+        }
+        className="h-16 w-full rounded-[24px] border border-zinc-200 bg-white px-7 text-lg text-[#093830] shadow-sm outline-none transition focus:border-[#77D89E] focus:ring-4 focus:ring-[#77D89E]/20"
       />
     </div>
   );

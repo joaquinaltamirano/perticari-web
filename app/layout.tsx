@@ -3,6 +3,8 @@ import "./globals.css";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import CartWidget from "./components/CartWidget";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Perticari",
@@ -19,6 +21,11 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <CartWidget />
+        <Toaster
+  position="top-right"
+  richColors
+/>
         <Footer />
       </body>
     </html>
